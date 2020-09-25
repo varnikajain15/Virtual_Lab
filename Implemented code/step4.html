@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="stylesheet" href="css/styles.css">
+<style>
+#finger{
+  width:300px;
+  height:300px;
+  top:50px;
+  left:150px;
+  position: absolute;
+}
+#stirrer{
+    width:400px;
+    height:250px;
+    z-index: 2;
+    left:400px;
+    top:100px;
+    position: absolute;
+}
+#final{
+    border:2px solid black;
+    text-align: center;
+    position:absolute;
+    width: 150px;
+    height: 100px;
+    top:200px;
+    left:20px;
+}
+#resulttube{
+    border:2px solid black;
+    text-align: center;
+    position:absolute;
+    width: 150px;
+    height: 80px;
+    top:200px;
+    left:630px;
+}
+
+</style>
+</head>
+<body>
+
+    <header>
+        <nav id="header-nav" class="navbar navbar-default">
+          <div class="container">
+            <div class="navbar-header">
+               <div id="collapsable-nav" class="collapse navbar-collapse">
+                  <h1 style="color: whitesmoke;text-align: center;margin-top: 0"><u>HAEMOGLOBIN ESTIMATION BY SAHLIS METHOD</u></h1>
+            </div><!-- .collapse .navbar-collapse -->
+          </div><!-- .container -->
+        </nav><!-- #header-nav -->
+      </header>
+     
+      <div id="options"> 
+         <a href="step1.html"><button><b>RESET</b></button></a>
+          <br><br><br>
+         <a href="https://docs.google.com/forms/d/e/1FAIpQLSce-x3IZZQ2CKxvwj5ZeGbfUQ_TQajVvBmsn5IkvIfgCDScCQ/viewform?usp=sf_link"><button><b>QUIZ</b></button></a>
+      </div>
+    
+    <div id="imgcont">
+        
+        <img id="finger" src="./pictures/last.png">
+        <div id="final">Color of testtube matching comparator color representing result</div>
+        <div id="resulttube">Mark of the test tube reperesenting answer</div>
+        <div id="conclude" style="text-align: center; border-bottom:2px solid black">COCNCLUSION AND MEASUREMENT</div>
+        <img id="stirrer" src="./pictures/test.png">
+
+    </div>
+
+    <!-- <div id="instruct">
+      <h3><u>INSTRUCTIONS</u></h3>
+      <ul>
+      <li><h4>HERE YOU WILL GET YOUR READING AND FROM THE RESULT YU CAN eSTIMAE THE HAEMOGLOBIN PRESENT</h4></li>
+      <li><h4>After reading this start selecting appropriate options from left column to see experiment in action.</h4></li>
+      <li><h4>Its a simulation so each step will perform task once. After clicking all steps in left column click next to get further observation.</h4></li>
+      </li>
+    </div>
+    <div id="steps">
+        <div class="step"><h5>STEP 4</h5>WHEN SAME COLOR IS OBSERVED IN COPARATOR BOX AND HAEMOGLOBINOMETER TAKE IT OUT AND CHECK THE READING.<br><br>YOU WILL GET THE READING IN HB GRAM%</div>
+        <div class="step">
+      		<h2>RESULTS YOU CAN OBTAIN</h2>
+            <ul>
+            	<li><b>MEN : 15 ± 2 g/dl</b>
+            	<li><b>WOMEN : 13.5 ± 1.5 g/dl</b>
+            	<li><b>CHILDREN : 16.5 ± 3 g/dl	</b>
+            </ul>
+    	</div>
+    </div> -->
+
+<script>
+function myMove() {
+  var elem = document.getElementById("animate");  
+  var posl = 50;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (posl == 510) {
+      clearInterval(id);
+          } else {
+      posl++; 
+         elem.style.left = posl + "px"; 
+    }
+  }
+}
+function myMove2() {
+  var elem=document.getElementById("pipette");
+  var elem1 = document.getElementById("animate");  
+  var elem2=document.getElementById("blood");
+  var posh =0;
+  var posup;
+     var id = setInterval(frame, 10);
+  function frame() {
+    if (posh == 160) {
+        if(posup==0)
+              clearInterval(id);
+            else{
+              posup--;
+                elem1.style.top = posup + "px";
+            }
+      } else {
+        posh++; 
+         elem1.style.top = posh + "px"; 
+        posup=posh;
+    }
+  }
+}
+</script>
+</body>
+</html>

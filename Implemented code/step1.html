@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="stylesheet" href="css/styles.css">
+  <style>
+#imgcont{
+  height: 500px;
+}
+#finger{
+  width:300px;
+  height:300px;
+  top:28%;
+  left:65%;
+  position: absolute;
+}
+#blood{
+  width:40px;
+  height:40px;
+  /* border-radius: 50%; */
+  top:252px;
+  left:627px;
+  position: absolute;
+  /* background-color: red; */
+  display:none;
+}
+#animate {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top:75px; 
+  left:20px;
+  display: block;
+  
+  
+}
+#pipette{
+  width: 250px;
+  height: 300px;
+  position: absolute;
+  /* top:10px; */
+  left:250px;
+  display: block;
+  z-index: 2;
+}
+#hcldropper{
+  position: absolute;
+  text-align: center;
+  width:100px;
+  left:60px;
+  top:230px;
+  border: 2px solid black;
+}
+#hemopipette{
+  position: absolute;
+  text-align: center;
+  width:200px;
+  left:250px;
+  top:300px;
+  border: 2px solid black;
+}
+#hemotube{
+  position: absolute;
+  text-align: center;
+  width:200px;
+  left:600px;
+  top:420px;
+  border: 2px solid black;
+}
+#instruct{
+  position: absolute;
+  left:300px;
+  top:600px;
+  width:800px;
+}
+.highlight_d:hover, .highlight_d:active {
+ transform: scale(1,1.2);
+
+ 
+}
+
+.highlight:hover, .highlight:active {
+ transform: scale(1.2,1.2);
+
+ 
+}
+.span_d {
+    display: none;
+    font-size: 25px;
+    color: black;
+    font-family: sans-serif;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 40%;
+    left: 20%;
+    position: absolute;
+    bottom:  8px;
+    height: 50px;
+    cursor: pointer;
+    
+    top: 80%;
+    
+}
+.span {
+    display: none;
+    font-size: 20px;
+    color: black;
+    font-family: sans-serif;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 40%;
+    left: 36%;
+    position: absolute;
+    bottom:  8px;
+    height: 50px;
+    cursor: pointer;
+    
+    top: 80%;
+    
+}
+.highlight:hover >.span{
+	display: block;
+}
+.highlight_d:hover > .span_d{
+	display: block;
+}
+
+</style>
+</head>
+<body>
+  
+  <header>
+    <nav id="header-nav" class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+           <div id="collapsable-nav" class="collapse navbar-collapse">
+              <h1 style="color: whitesmoke;text-align: center;margin-top: 0"><u>!! HAEMOGLOBIN ESTIMATION BY SAHLIS METHOD !!</u></h1>
+        </div><!-- .collapse .navbar-collapse -->
+      </div><!-- .container -->
+    </nav><!-- #header-nav -->
+  </header>
+ 
+  <div id="options"> 
+      <p><button>Select The Lancet</button></p> 
+      <p>
+          <img style="height:50px;width: 50px; border: 2px solid black" id="inopt" src="./pictures/b.png">
+          <img  style="height:50px;width: 50px; border: 2px solid black" id="inopt" src="./pictures/empt.png">
+      </p>
+      <p><button onclick="myMove()">Prick The Finger</button></p> 
+      <p><button>Select haemoglobinometer pipette</button></p> 
+      <p><button onclick="myMove2()">Suck the blood</button></p> 
+      <a href="step2.html"><h3>Next main step</h3></a>
+  </div>
+
+<div id="imgcont">
+<div class="highlight_d"><img id="animate" src="./pictures/b.png" ><div class="span_d">Lancet</div></div>
+<div class="highlight"><img id="pipette" src="./pictures/empt.png"><div class="span">Haemoglobinometer Pipette</div></div>
+<img id="finger" src="./pictures/hand.png" >
+<img id="blood" src="./pictures/bloodspot.png">
+<!-- <div id="hcldropper">PRICKER</div> 
+<div id="hemopipette">HEAMOGLOBINOMETER PIPETTE</div>
+<div id="hemotube">HAND WHOSE BLOOD SAMPLE TO BE TAKEN</div> -->
+<div id="heading" style="text-align:center;border-bottom:2px solid black" >FIRST STEP-PRICKING AND TAKING BLOOD SAMPLE</div>
+</div>
+
+<!-- <div id="instruct">
+    <h3><u>INSTRUCTIONS</u></h3>
+    <ul>
+    <li><h4>First read all the steps carefully, read what are the steps you have to perform in procedural way here.</h4></li>
+    <li><h4>After reading this start selecting appropriate options from left column to see experiment in action.</h4></li>
+    <li><h4>Its a simulation so each step will perform task once. After clicking all steps in left column click next to get further observation.</h4></li>
+    </li>
+  </div>
+
+<div id="steps">
+<div class="step"><h5>STEP 1</h5>PROPERLY CLEAN YOUR HANDS BEFORE TAKING THE SAMPLE.<br>PRICK THE DISTRIL FINGER AND TAKE THE BLOOD SAMPLE  (USE MIDDLE/RING FINGER FOR THE SAMPLE). <br>APPLY SPIRIT SWAB OVER PRICKING AREA</div>
+<div class="step"><h5>STEP 2</h5>TAKE LANCET AND PRICK DISTAL PART OF FINGER (AVOID MULTIPLE PRICKING).<br>PRICK ONCE IN MIDDLE OR RING FINGR </div>
+<div class="step"><h5>STEP 3</h5>BY THE HELP OF HAEMOGLOBINOMETER PIPETTE SUCK THE BLOOD UP TO 20μl MARKING to get the blood sample.</div>
+</div> -->
+
+
+<script>
+function myMove() {
+  var elem = document.getElementById("animate");  
+  var elem2=document.getElementById("blood");
+  var posl = 20;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (posl == 450) {
+      //clearInterval(id);
+      elem2.style.display="block";
+    } else {
+      posl++; 
+         elem.style.left = posl + "px"; 
+    }
+  }
+}
+function myMove2() {
+  var elem=document.getElementById("pipette");
+  var elem1 = document.getElementById("animate");  
+  var elem2=document.getElementById("blood");
+  var posl = 250;
+  elem1.style.left=20+"px";
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (posl == 500) {
+      clearInterval(id);
+      } else {
+      posl++; 
+         elem.style.left = posl + "px"; 
+    }
+  }
+}
+</script>
+</body>
+</html>
