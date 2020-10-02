@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/styles.css">
+      <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+<style>
+#finger{
+  width:380px;
+  height:400px;
+  top:50px;
+  left:450px;
+  position: absolute;
+}
+#animate {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top:20px;
+  left:50px;
+  display: block;
+}
+#pipette{
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top:220px;
+  left:50px;
+  display: block;
+}
+#waterdrp{
+  position:absolute;
+  left:20px;
+  top: 80px;
+  text-align: center;
+  width:70px;
+  border:2px solid black;
+}
+#beaker{
+  position: absolute;
+  left:200px;
+  top:100px;
+  border:2px solid black;
+}
+#comparator{
+  position: absolute;
+  left:750px;
+  top:230px;
+  border:2px solid black;
+  width:120px;
+  text-align: center;
+}
+#drop{
+  position: absolute;
+  top:140px;
+  left:620px;
+  width: 20px;
+  height: 20px;
+  display: none;
+}
+#instruct{
+  position: absolute;
+  left:300px;
+  top:520px;
+  width:700px;
+}
+.highlight_d{
+ transform: scale(1.1,1.2);
+}
+
+.highlight{
+ transform: scale(1.1,1);
+}
+
+.highlight_t{
+ transform: scale(1.5,1.5);
+}
+
+#button2,#button3,#button4,#button5,#button6{
+  display: none;
+}
+
+</style>
+</head>
+<body>
+
+    <header>
+        <nav id="header-nav" class="navbar navbar-default">
+          <div class="container">
+            <div class="navbar-header">
+               <div id="collapsable-nav" class="collapse navbar-collapse">
+                  <h1 style="color: whitesmoke;text-align: center;margin-top: 0"><u>HAEMOGLOBIN ESTIMATION BY SAHLI'S METHOD</u></h1>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <div id="instructions"> 
+          <h3><u><b>INSTRUCTIONS</b></u></h3>
+        <p>Follow the steps which will appear in right sides one by one. Select the apparatus and preform the task</p>
+      </div>
+
+     
+      <div id="options"> 
+          <h3><u><b>STEPS</b></u></h3> 
+          <p id="button1"><button onclick="highlight()">Water Dropper</button></p> 
+          <p id="button2"><button onclick="myMove2()">Take water from beaker</button></p>  
+          <p id="button3"><button onclick="highlight2()">Comparator Box With Test Tube</button></p> 
+          <p id="button4"><button onclick="myMove()">Put water in comparator </button></p>  
+          <h3 id="button5"> In real you have to repeat above step until you get the same color as in comparator</h3>
+          <a href="step4.html" id="button6"><button><h3>Conclusion and measurement</h3></button></a>
+      </div>
+    
+    <div id="imgcont">
+       <img id="animate" src="./pictures/waterpipette.png">
+        <img id="finger" src="./pictures/z.png">
+        <img id="pipette" src="./pictures/beaker.png">
+        <img id="drop" src="./pictures/drop.png">
+        <div id="heading" style="text-align:center"><U><b>THIRD STEP-TEST TUBE IN COMPARATOR AND ADDING WATER TO GET COLOR</b></U></div>
+    </div>
+
+<script>
+  function highlight(){
+  var elem=document.getElementById("animate");
+  elem.classList.add("highlight_d");
+  var elem2=document.getElementById("button2");
+  elem2.style.display="block";
+}
+
+function highlight2(){
+  var elem=document.getElementById("finger");
+  elem.classList.add("highlight_t");
+  var elem2=document.getElementById("button4");
+  elem2.style.display="block";
+}
+
+function myMove() {
+  var elem = document.getElementById("animate");
+  var elem2=document.getElementById("drop");
+  var elem3=document.getElementById("finger");
+  elem3.classList.remove("highlight_t");
+  var posl = 50;
+  var posb=140;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (posl == 510) {
+      // clearInterval(id);
+                  elem2.style.display="block";
+                  if(posb==300){
+                          elem2.style.display="none";
+                    }
+                  else{
+                          posb++;
+                          //console.log(posb);
+                          elem2.style.top=posb +"px";
+                  }
+          } else {
+      posl++; 
+         elem.style.left = posl + "px"; 
+    }
+  }
+  var elem4=document.getElementById("button5");
+  elem4.style.display="block";
+  var elem5=document.getElementById("button6");
+  elem5.style.display="block";
+}
+function myMove2() {
+  var elem=document.getElementById("pipette");
+  var elem1 = document.getElementById("animate");  
+  elem1.classList.remove("highlight_d"); 
+  var elem2=document.getElementById("blood");
+  var posh =20;
+  var posup;
+     var id = setInterval(frame, 10);
+  function frame() {
+    if (posh == 160) {
+        if(posup==20)
+              clearInterval(id);
+            else{
+              posup--;
+                elem1.style.top = posup + "px";
+            }
+      } else {
+        posh++; 
+         elem1.style.top = posh + "px"; 
+        posup=posh;
+    }
+  }
+  var elem3=document.getElementById("button3");
+  elem3.style.display="block";
+}
+</script>
+</body>
+</html>

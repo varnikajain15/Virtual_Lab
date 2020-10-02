@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/styles.css">
+<style>
+#finger{
+  width:300px;
+  height:300px;
+  top:90px;
+  left:150px;
+  position: absolute;
+}
+#stirrer{
+    width:400px;
+    height:250px;
+    z-index: 2;
+    left:400px;
+    top:130px;
+    position: absolute;
+}
+#final{
+    border:2px solid black;
+    text-align: center;
+    position:absolute;
+    width: 150px;
+    height: 100px;
+    top:200px;
+    left:20px;
+}
+#resulttube{
+    border:2px solid black;
+    text-align: center;
+    position:absolute;
+    width: 150px;
+    height: 80px;
+    top:200px;
+    left:630px;
+}
+#data1{
+  position:absolute;
+  top: 500px;
+  margin:10px;
+  left:300px;
+
+}
+#data2{
+  position:absolute;
+  top: 500px;
+  left:800px;
+  margin:10px;
+  height:200px;
+  width: 300px;
+  float:left;
+}
+
+</style>
+</head>
+<body>
+
+    <header>
+        <nav id="header-nav" class="navbar navbar-default">
+          <div class="container">
+            <div class="navbar-header">
+               <div id="collapsable-nav" class="collapse navbar-collapse">
+                  <h1 style="color: whitesmoke;text-align: center;margin-top: 0"><u>HAEMOGLOBIN ESTIMATION BY SAHLI'S METHOD</u></h1>
+            </div><!-- .collapse .navbar-collapse -->
+          </div><!-- .container -->
+        </nav><!-- #header-nav -->
+      </header>
+     
+      <div id="options"> 
+         <a href="step1.html"><button><b>RESET</b></button></a>
+          <br><br><br>
+         <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSce-x3IZZQ2CKxvwj5ZeGbfUQ_TQajVvBmsn5IkvIfgCDScCQ/viewform?usp=sf_link"><button><b>QUIZ</b></button></a> -->
+        </div>
+
+    
+    <div id="imgcont">
+        
+        <img id="finger" src="./pictures/last.png">
+        <div id="final"><b>Color of test tube matching comparator color representing result</b></div>
+        <div id="resulttube"><b>Mark of the test tube reperesenting answer</b></div>
+        <div id="conclude" style="text-align: center; border-bottom:2px solid black"><b>COCNCLUSION AND MEASUREMENT</b></div>
+        <img id="stirrer" src="./pictures/test.png">
+    </div>
+
+    <img src="pictures/DATA1.png" id="data1">
+    <img src="pictures/data2.PNG" id="data2">
+    
+    
+<script>
+function myMove() {
+  var elem = document.getElementById("animate");  
+  var posl = 50;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (posl == 510) {
+      clearInterval(id);
+          } else {
+      posl++; 
+         elem.style.left = posl + "px"; 
+    }
+  }
+}
+function myMove2() {
+  var elem=document.getElementById("pipette");
+  var elem1 = document.getElementById("animate");  
+  var elem2=document.getElementById("blood");
+  var posh =0;
+  var posup;
+     var id = setInterval(frame, 10);
+  function frame() {
+    if (posh == 160) {
+        if(posup==0)
+              clearInterval(id);
+            else{
+              posup--;
+                elem1.style.top = posup + "px";
+            }
+      } else {
+        posh++; 
+         elem1.style.top = posh + "px"; 
+        posup=posh;
+    }
+  }
+}
+</script>
+</body>
+</html>

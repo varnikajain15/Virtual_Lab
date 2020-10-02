@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+<style>
+  #imgcont{
+    height:500px;
+  }
+#finger{
+  width:400px;
+  height:390px;
+  top:100px;
+  left:500px;
+  position: absolute;
+  z-index: -1;
+}
+#animate {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top:50px;
+  left:50px;
+  display: block;
+  z-index: 1;
+}
+#pipette{
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  /* top:2px; */
+  left:200px;
+  display: block;
+  z-index: 2;
+}
+#drop{
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top:330px;
+  left:683px;
+  display:none;
+}
+#hcldrop{
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top:200px;
+  left:683px;
+  display:none;
+}
+#hcldropper{
+  position: absolute;
+  text-align: center;
+  width:100px;
+  left:60px;
+  top:220px;
+  border: 2px solid black;
+}
+#hemopipette{
+  position: absolute;
+  text-align: center;
+  width:200px;
+  left:250px;
+  top:250px;
+  border: 2px solid black;
+}
+#hemotube{
+  position: absolute;
+  text-align: center;
+  width:200px;
+  left:450px;
+  top:400px;
+  border: 2px solid black;
+}
+#bloodfilled{
+  top:400px;
+  left:668px;
+  position: absolute;
+  width:50px;
+  height: 100px;
+  display:none;
+}
+#instruct{
+  position: absolute;
+  left:300px;
+  top:600px;
+  width:700px;
+}
+.highlight_d {
+ transform: scale(1.5,1.5);
+
+ 
+}
+.highlight_t{
+ transform: scale(1,1.1);
+
+ 
+}
+.highlight{
+ transform: scale(1.2,1.2);
+}
+
+
+#button2,#button3,#button4,#button5{
+  display: none;
+}
+/* .span_d {
+    display: none;
+    font-size: 20px;
+    color: black;
+    font-family: sans-serif;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 40%;
+    left: 13%;
+    position: absolute;
+    bottom:  8px;
+    height: 50px;
+    cursor: pointer;
+    
+    top: 80%;
+    
+}
+.span {
+    display: none;
+    font-size: 20px;
+    color: black;
+    font-family: sans-serif;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 40%;
+    left: 31%;
+    position: absolute;
+    bottom:  8px;
+    height: 50px;
+    cursor: pointer;
+    
+    top: 80%;
+    
+}
+.span_t {
+    display: none;
+    font-size: 23px;
+    color: black;
+    font-family: sans-serif;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 48%;
+    right: 17%;
+    position: absolute;
+    bottom:  8px;
+    height: 50px;
+    cursor: pointer;
+    
+    top: 80%;
+    
+} */
+
+</style>
+</head>
+<body>
+
+    <header>
+        <nav id="header-nav" class="navbar navbar-default">
+          <div class="container">
+            <div class="navbar-header">
+               <div id="collapsable-nav" class="collapse navbar-collapse">
+               <h1 style="color: whitesmoke;text-align: center;margin-top: 0"><u>HAEMOGLOBIN ESTIMATION BY SAHLI'S METHOD</u></h1>
+            </div>
+          </div>
+        </nav>      
+      </header>
+      <div id="instructions"> 
+          <h3><u><b>INSTRUCTIONS</b></u></h3>
+          <ul>
+        <p>Follow the steps which will appear in right sides one by one. Select the apparatus and preform the task</p>
+      </div>
+     
+      <div id="options"> 
+          <h3><u><b>STEPS</b></u></h3> 
+          <p><button onclick="highlight()">Select Dropper </button></p>
+          <p id="button5"><button onclick="myMove()">Suck N/10 HCL in Dropper</button></p>  
+          <p id="button2"><button onclick="myMove()">Step3:Put HCL in Test Tube</button></p> 
+          <p id="button3"><button onclick="highlight2()">Select Haemoglobinometer Pipette</button></p>   
+          <p id="button4"><button onclick="myMove2()">Step4: Mix Blood In Test tube</button></p> 
+          <a href="step3.html" id="button5"><button><h3>Next main step</h3></button></a>
+      </div>
+
+    
+    <div id="imgcont">
+        <img id="animate" src="./pictures/a.png">
+        <img id="hcl" src="./pictures/hcl.png">
+       <img id="finger" src="./pictures/testtube.png">
+       <img id="pipette" src="./pictures/kkk.png">
+        <img id="drop" src="./pictures/blooddrop.png">
+        <img id="hcldrop" src="./pictures/hcldrop.png">
+        <img id="bloodfilled" src="./pictures/bloodd.png">
+        <div id="heading" style="text-align:center;border-bottom:2px solid black"><b>SECOND STEP-ADDING HCL AND BLOOD SAMPLE TO TUBE</b></div>
+    </div>
+
+<script>
+
+function highlight(){
+  var elem=document.getElementById("animate");
+  elem.classList.add("highlight_d");
+  var elem2=document.getElementById("button2");
+  elem2.style.display="block";
+}
+
+function highlight2(){
+  var elem=document.getElementById("pipette");
+  elem.classList.add("highlight");
+  var elem2=document.getElementById("button4");
+  elem2.style.display="block";
+}
+
+function myMove() {
+  var elem = document.getElementById("animate");  
+  elem.classList.remove("highlight_d"); 
+  var elem2=document.getElementById("hcldrop");
+  var posl = 50;
+  var posb= 200;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (posl == 620) {
+      //clearInterval(id);
+                  elem2.style.display="block";
+                  if(posb==420){
+                          elem2.style.display="none";
+                    }
+                  else{
+                          posb++;
+                          console.log(posb);
+                          elem2.style.top=posb +"px";
+                  }
+          } else {
+      posl++; 
+         elem.style.left = posl + "px"; 
+    }
+  }
+  var elem3=document.getElementById("button3");
+  elem3.style.display="block";
+}
+function myMove2() {
+  var elem=document.getElementById("pipette");
+  elem.classList.remove("highlight"); 
+  var elem1 = document.getElementById("animate");
+  var elem2=document.getElementById("drop");  
+  var elem3=document.getElementById("bloodfilled")
+  var posl = 200;
+  var posup=0;
+  var posb=330; 
+  elem1.style.left=50+"px";
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (posl == 585) {
+      if(posup==100){
+                  
+                  
+                  elem2.style.display="block";
+                  if(posb==420){
+                          elem2.style.display="none";
+                          elem3.style.display="block";
+                    }
+                  else{
+                          posb++;
+                          console.log(posb);
+                          elem2.style.top=posb +"px";
+                  }
+
+        }
+      else{
+              posup++;
+                elem.style.top = posup + "px";
+      }
+    }
+    else{
+      posl++; 
+      elem.style.left = posl + "px"; 
+    }
+    var elem4=document.getElementById("button5");
+  elem4.style.display="block";
+}
+  
+}
+</script>
+</body>
+</html>
